@@ -1,0 +1,29 @@
+/* FOOTER */
+
+.footer{
+    width: 240px;
+    position:fixed;
+    bottom: 10px;
+    right: 10px;
+    border: 2px solid #07004D;
+    border-radius: 14px;
+    background-color: rgb(253, 253, 253);
+    margin-top: 20px;
+    align-self: center;
+    text-align: center;
+    color: #07004D;
+}
+
+.footer-text {
+    margin-top: 10px;
+    padding: 6px 22px;
+    text-align: center;
+}
+
+.footer-text a {
+    color: blue;
+}
+
+.footer-text b {
+    font-family: "Permanent Marker";
+}

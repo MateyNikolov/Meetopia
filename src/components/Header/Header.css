@@ -1,0 +1,66 @@
+/* NAVIGATION AND LOGO */
+
+nav {
+    padding: 15px 200px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; 
+    align-items: center;
+    color: #07004D;
+    background-color: rgb(253, 253, 253);
+    border-bottom: solid 2px #07004D;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-txt{
+    font-family: 'Permanent Marker';
+    font-size: 40px;
+    margin-right: 20px;
+}
+
+.logo-txt:hover {
+    color: #07004D;
+}
+
+.logo-img {
+    width: 80px;
+    height: 80px;
+    margin: 10px 0px;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 36px;
+}
+
+a {
+    text-decoration: none;
+    font-family: 'Caveat', cursive;
+    font-size: 28px;
+    color: #07004D;
+}
+
+a:hover {
+    color:blue;
+}
+
+.profile-box {
+    display: flex;
+    align-items: center;
+}
+
+.profile-img {
+    margin-left: 10px;
+    padding: 6px;
+    width: 45px;
+    height: 45px;
+    border: 1px solid black;
+    border-radius: 24px;
+}

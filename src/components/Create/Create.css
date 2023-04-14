@@ -1,0 +1,36 @@
+/* CREATE NEW POST */
+
+.new-post {
+    background-color: rgb(238, 238, 238);
+}
+
+.new-post-form .headings {
+    margin-bottom: 15px;
+}
+
+.new-post-form {
+    font-size: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.new-post-form input {
+    font-size: 18px;
+    
+}
+
+.post-img {
+    text-align: center;
+    width: 300px;
+    background-color: white;
+}
+
+.post-img:hover {
+    color: blue;
+}
+
+.create-btn {
+    margin: 28px;
+}

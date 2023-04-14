@@ -1,0 +1,42 @@
+/* HOME */
+
+.home-heading {
+    width: 1200px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 60px;
+    align-items: center;
+    padding: 100px 0px;
+
+}
+
+.heading-img {
+    width: 600px;
+}
+
+.heading-texts {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #07004D;
+}
+
+.heading-text {
+    width: 100%;
+    font-family: 'Permanent Marker';
+    font-size: 56px;
+    text-align: center;
+    margin-bottom: 20px;
+
+}
+
+.heading-second {
+    font-size: 38px;
+}
+
+.heading-second:hover {
+    color: blue;
+}

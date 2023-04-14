@@ -1,0 +1,36 @@
+/* PROFILE */
+
+.profile {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 150px;
+    margin: 30px;
+
+}
+
+.profile-username {
+    font-size: 44px;
+    margin-bottom: 40px;
+}
+
+.profile-info {
+    width: 100%;
+    font-size: 28px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.profile-picture {
+    width: 350px;
+    height: 350px;
+    padding: 30px;
+    border: 1px solid white;
+    border-radius: 222px;
+}
+
+.edit-profile {
+    margin: 28px;
+}
