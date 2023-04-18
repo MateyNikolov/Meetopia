@@ -56,4 +56,3 @@ For Back End im using the SoftUni Practice Server.
 
 Please consider that this project is made only for educational purpose.
 If you have questions about the Project please contact me.
->>>>>>> a3a19668fa8fce645fec0fb7894188a5bcde0ffa
