@@ -1,0 +1,142 @@
+.see-all-post-box {
+    margin: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+    overflow-wrap: break-word;
+
+}
+
+.see-all-post-box img {
+    border-radius: 18px;
+    border: 1px solid #07004D;
+    width: 40%;
+    height: 400px;
+    object-fit: cover;
+}
+
+.see-all-post-box span {
+    width: 50%;
+    font-size: 22px;
+}
+
+.see-all-btns {
+    margin: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 15px;
+}
+
+i {
+    margin-right: 6px;
+}
+
+.likes {
+    padding: 8px;
+    border-top: 1px solid #07004D;
+    border-bottom: 1px solid #07004D;
+    margin: 30px;
+    display: flex;
+    gap: 60px;
+    font-size: 32px;
+}
+
+/* COMMENT SECTION */
+
+.comment-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color:  rgb(248, 248, 248);
+    margin: 30px;
+    padding: 10px 50px;
+    border: 1px solid lightgray;
+    border-radius: 18px;
+}
+
+.comment {
+    
+    width: 700px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin: 25px;
+    background-color: white;
+    border-radius: 18px;
+}
+
+.comment p {
+    width: 45px;
+    border-bottom: 1px solid #07004D;
+}
+
+.comment-content {
+    padding: 32px;
+    font-size: 22px;
+}
+
+.user {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 8px;
+    font-size: 22px;
+}
+
+.comment-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.comment-owner {
+    display: flex;
+    align-items:center;
+    gap: 40px;
+    border-bottom: 1px dotted lightgray;
+    margin-bottom: 20px;
+    padding: 20px;
+    /* background-color: white;
+    border: 1px solid #07004D;
+    border-radius: 24px;
+    ; */
+}
+
+.comment-owner span {
+    font-size: 16px;
+}
+
+.write-comment {
+    display: flex;
+    flex-direction: column;
+    margin: 30px;
+    align-items: center;
+    justify-content: center;
+}
+
+.comment-text {
+    font-size: 22px;
+    margin: 30px;
+    padding: 20px;
+    resize: none;
+    border-radius: 18px;
+}
+
+.comment-heading {
+    font-size: 32px;
+    text-align: center;
+}
+
+.write-comment .comment-btn {
+    width: 150px;
+}
+
+.no-comments {
+    margin-top: 35px;
+}

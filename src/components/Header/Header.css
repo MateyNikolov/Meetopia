@@ -57,10 +57,12 @@ a:hover {
 }
 
 .profile-img {
+    object-fit: cover;
     margin-left: 10px;
-    padding: 6px;
     width: 45px;
     height: 45px;
-    border: 1px solid black;
+    border: 1px solid white;
+    scale: 1.2;
     border-radius: 24px;
+    overflow: hidden;
 }

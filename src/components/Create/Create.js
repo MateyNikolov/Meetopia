@@ -1,14 +1,14 @@
 import { useContext, useState } from 'react';
-import { CloudinaryContext, Image } from 'cloudinary-react';
 import { request as requester } from '../../services/requester';
 import './Create.css';
 import { AuthContext } from '../../contexts/authContext';
+import { useNavigate } from 'react-router-dom';
 
 const Create = () => {
     const [formData, setFormData] = useState(new FormData());
     const [postText, setPostText] = useState('');
     const [image, setImage] = useState(false);
-    const [postId, setPostId] = useState('');
+    const navigate = useNavigate();
 
     const { auth } = useContext(AuthContext);
 
@@ -16,7 +16,7 @@ const Create = () => {
         const file = event.target.files[0];
         formData.append('file', file);
         formData.append('upload_preset', 'f6pccyxv');
-        formData.append('folder', `meetopia/${auth._id}`);
+        formData.append('folder', `meetopia/${auth._id}/posts`);
         setFormData(formData);
         setImage(true);
     };
@@ -30,16 +30,16 @@ const Create = () => {
         event.preventDefault();
 
         try {
-            const result = await requester(postUrl, 'POST', { 'Post-Text': postText }, auth.accessToken);
-            setPostId(result._id);
-            formData.append('public_id', postId);
-            console.log(postId);
-            if (image) {
+            const result = await requester(postUrl, 'POST', { postText : postText, email: auth.email }, auth.accessToken);
+            const post_id = result._id;
+            formData.append('public_id', post_id);      
+            if (image && auth.accessToken) {
                 await fetch(`https://api.cloudinary.com/v1_1/dj5j9cqc0/image/upload`, {
                     method: 'POST',
                     body: formData,
                 })
             };
+            navigate('/posts');
         } catch (error) {
             console.log(error);
         }
@@ -66,7 +66,7 @@ const Create = () => {
                     <label className="post-img" htmlFor="post-img">
                         Want to add image to your post? Click me!
                         <input
-                            hidden="true"
+                            hidden={true}
                             id="post-img"
                             name="post-img"
                             type="file"

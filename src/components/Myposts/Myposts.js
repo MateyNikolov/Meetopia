@@ -1,95 +1,46 @@
+import { useContext, useEffect, useState } from 'react';
+import { AuthContext } from '../../contexts/authContext';
 import './Myposts.css';
+import { Link } from 'react-router-dom';
+import MyPost from './MyPost/MyPost';
 
 const Myposts = () => {
+    const [posts, setPosts] = useState([]);
+    const { auth } = useContext(AuthContext);
+
+    const getMyPosts = async () => {
+        const owner = encodeURIComponent(`_ownerId="${auth._id}"`)
+        const url = `http://localhost:3030/data/posts?where=${owner}`;
+        const result = await fetch(url, {
+            method: "GET",
+        })
+
+        const data = await result.json();
+        if (data.code === 404 || data.length < 1) {
+            setPosts([]);
+        } else {
+            setPosts(data.reverse());
+        }
+    }
+
+    useEffect(() => {
+        getMyPosts();
+    }, []);
+
     return (
         <div className='my-posts'>
-            <article className="post">
-                <div className="user-box">
-                    <img className="username-pic" src="imgs/profile.png" alt="profile-img" />
-                    <h2 className="post-username">Username</h2>
-                    <span>gepostet on Day and Time</span>
-                </div>
-                <div className="post-box">
-                    <img src="imgs/logo.png" alt="post-img" />
-                    <span>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minima, harum vitae? Id temporibus
-                        sequi, modi doloremque, itaque inventore hic commodi debitis non ex aut corrupti soluta facilis
-                        sapiente veritatis dolores!
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia odio vero quisquam consequuntur
-                        deleniti saepe maiores, est tenetur explicabo, nobis harum neque quam distinctio porro placeat iste
-                        ex optio modi?
-                    </span>
-                    <div className="mypost-btns">
-                        <button className="post-btn">Edit Post</button>
-                        <button className="post-btn">Delete Post</button>
-                    </div>
-                </div>
-            </article>
 
-            <article className="post">
-                <div className="user-box">
-                    <img className="username-pic" src="imgs/profile.png" alt="profile-img" />
-                    <h2 className="post-username">Username</h2>
-                    <span>gepostet on Day and Time</span>
-                </div>
-                <div className="post-box">
-                    <img src="imgs/logo.png" alt="post-img" />
-                    <span>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minima, harum vitae? Id temporibus
-                        sequi, modi doloremque, itaque inventore hic commodi debitis non ex aut corrupti soluta facilis
-                        sapiente veritatis dolores!
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia odio vero quisquam consequuntur
-                        deleniti saepe maiores, est tenetur explicabo, nobis harum neque quam distinctio porro placeat iste
-                        ex optio modi?
-                    </span>
-                    <div className="mypost-btns">
-                        <button className="post-btn">Edit Post</button>
-                        <button className="post-btn">Delete Post</button>
-                    </div>
-                </div>
-            </article>
+            {posts.map(x =>
+                <MyPost getMyPosts={getMyPosts} key={x._id} user={auth} postDate={x._createdOn} postId={x._id} postText={x.postText} />
+            )}
 
-            <article className="post">
-                <div className="user-box">
-                    <img className="username-pic" src="imgs/profile.png" alt="profile-img" />
-                    <h2 className="post-username">Username</h2>
-                    <span>gepostet on Day and Time</span>
+            {posts.length === 0 && (
+                <div className='empty-page'>
+                    <h3 className="headings">You dont have any posts yet.. </h3>
+                    <Link className="headings" to="/new">Make your first</Link>
                 </div>
-                <div className="post-box">
-                    <img src="imgs/logo.png" alt="post-img" />
-                    <span>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minima, harum vitae? Id temporibus
-                        sequi, modi doloremque, itaque inventore hic commodi debitis non ex aut corrupti soluta facilis
-                        sapiente veritatis dolores!
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia odio vero quisquam consequuntur
-                        deleniti saepe maiores, est tenetur explicabo, nobis harum neque quam distinctio porro placeat iste
-                        ex optio modi?
-                    </span>
-                    <div className="mypost-btns">
-                        <button className="post-btn">Edit Post</button>
-                        <button className="post-btn">Delete Post</button>
-                    </div>
-                </div>
-            </article>
+            )}
 
-            <article className="post">
-                <div className="user-box">
-                    <img className="username-pic" src="imgs/profile.png" alt="profile-img" />
-                    <h2 className="post-username">Username</h2>
-                    <span>gepostet on Day and Time</span>
-                </div>
-                <div className="post-box">
-                    <img src="imgs/logo.png" alt="post-img" />
-                    <span>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minima, harum vitae? Id temporibus
-                        sequi, modi doloremque, itaque inventore hic commodi debitis non ex aut corrupti soluta facilis
-                        sapiente veritatis dolores!
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia odio vero quisquam consequuntur
-                        deleniti saepe maiores, est tenetur explicabo, nobis harum neque quam distinctio porro placeat iste
-                        ex optio modi?
-                    </span>
-                    <div className="mypost-btns">
-                        <button className="post-btn">Edit Post</button>
-                        <button className="post-btn">Delete Post</button>
-                    </div>
-                </div>
-            </article>
         </div>
     );
 };

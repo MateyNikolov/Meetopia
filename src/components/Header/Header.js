@@ -4,7 +4,7 @@ import { useContext } from 'react';
 import './Header.css';
 
 const Header = () => {
-    const { isAuthenticated } = useContext(AuthContext);
+    const { isAuthenticated, auth } = useContext(AuthContext);
 
     return (
         <header>
@@ -19,7 +19,7 @@ const Header = () => {
                 </div>
                 <ul>
                     <li>
-                        <Link to="/feed">
+                        <Link to="/posts">
                             Feed
                         </Link>
                     </li>
@@ -46,7 +46,11 @@ const Header = () => {
                                         Profile
                                     </Link>
                                     <Link to="/profile">
-                                        <img className="profile-img" src="/imgs/profile.png" alt="profile picture" />
+                                        <img
+                                            className="profile-img"
+                                            src={!auth.picture ? ("/imgs/profile.png") : (auth.picture)}
+                                            alt="profile picture"
+                                        />
                                     </Link>
                                 </div>
                             </>

@@ -137,3 +137,16 @@ main {
   resize: none;
   border-radius: 18px;
 }
+
+.empty-page {
+  flex-direction: column;
+  width: 100vw;
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.comment-label {
+  text-align: center;
+}

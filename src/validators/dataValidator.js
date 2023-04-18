@@ -2,10 +2,10 @@ import { handleAlert } from "../services/messages/AlertMessage"
 
 export const validateData = (data) => {
     if (
-        data.email.length == 0 ||
-        data.password.length == 0 ||
-        data.age.length == 0 ||
-        data.city.length == 0
+        data.email.length === 0 ||
+        data.password.length === 0 ||
+        data.age.length === 0 ||
+        data.city.length === 0
     ) {
         return handleAlert("Please fill the whole form")
     } else if (Number(data.age) <= 17) {

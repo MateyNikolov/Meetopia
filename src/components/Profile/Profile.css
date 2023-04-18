@@ -13,6 +13,7 @@
 .profile-username {
     font-size: 44px;
     margin-bottom: 40px;
+    color:#07004D;
 }
 
 .profile-info {
@@ -20,17 +21,33 @@
     font-size: 28px;
     display: flex;
     flex-direction: column;
+    color:#07004D;
 
 }
 
 .profile-picture {
     width: 350px;
     height: 350px;
-    padding: 30px;
+    padding: 12px;
     border: 1px solid white;
     border-radius: 222px;
+    background-color: rgb(250, 247, 247);
+    object-fit: cover;
 }
 
 .edit-profile {
+    width: 180px;
+    border: 1px solid #07004D;
+    border-radius: 24px;
+    padding: 8px;
+    font-size: 22px;
     margin: 28px;
+    text-align: center;
+    color:#07004D;
 }
+ 
+.edit-profile:hover {
+    color: white;
+    background-color: #07004D;
+    border: 1px solid white;
+} 

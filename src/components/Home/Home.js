@@ -14,7 +14,7 @@ const Home = () => {
                     (<Link to="/login">
                         <h2 className='heading-second'>Connect now</h2>
                     </Link>)
-                    : <Link to="/feed">
+                    : <Link to="/posts">
                         <h2 className='heading-second'>Start your trip</h2>
                     </Link>}
             </div>

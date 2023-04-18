@@ -6,10 +6,15 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { validateData } from "../validators/dataValidator";
 
+import { CloudinaryImage } from "@cloudinary/url-gen";
+import { URLConfig } from "@cloudinary/url-gen";
+import { CloudConfig } from "@cloudinary/url-gen";
+
 
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
+    const [imageExists, setImageExists] = useState(false);
     const [auth, setAuth] = useState({});
     const navigate = useNavigate();
 
@@ -22,8 +27,28 @@ export const AuthProvider = ({ children }) => {
         if (result.status) {
             handleAlert(result.message);
         } else {
+            let cloudConfig = new CloudConfig({ cloudName: 'dj5j9cqc0' });
+            let urlConfig = new URLConfig({ secure: true });
+            let myImage = new CloudinaryImage(`meetopia/${result._id}/profile-picture/profile-${result._id}`, cloudConfig, urlConfig);
+            let imageUrl = myImage.toURL();
+
+            fetch(imageUrl)
+                .then(response => {
+                    setImageExists(response.ok);
+                })
+                .catch(() => {
+                    setImageExists(false);
+                });
+            
+            console.log(imageExists);
+
+            if (imageExists) {
+                result.picture = imageUrl;
+            } else {
+                result.picture = null;
+            }
             setAuth(result);
-            navigate('/feed');
+            navigate('/posts');
         }
     };
 
@@ -36,8 +61,8 @@ export const AuthProvider = ({ children }) => {
             if (result.status) {
                 handleAlert(result.message);
             } else {
-                setAuth(result);
-                navigate('/feed');
+                setAuth({ ...result, picture: null });
+                navigate('/posts');
             }
         };
     }
@@ -55,6 +80,7 @@ export const AuthProvider = ({ children }) => {
         onRegisterSubmit,
         onLogout,
         auth,
+        setAuth,
         isAuthenticated() {
             return !!auth.accessToken
         }

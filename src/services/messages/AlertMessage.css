@@ -15,7 +15,7 @@
 .popup {
   position: relative;
   width: 800px;
-  height: 160px;
+  height: 190px;
   z-index: 9999;
   display: flex;
   flex-direction: column;
@@ -30,7 +30,23 @@
   padding: 20px;
 }
 
+.popup-inner .popup-close {
+  padding: 0;
+  width: 45px;
+}
+
+.popup-heading {
+  padding: 8px 22px;
+  border-radius: 44px;
+  font-size: 32px;
+  text-align: center;
+  color: red;
+}
+
 .popup-message {
+  background-color: rgb(245, 245, 245);
+  padding: 8px 22px;
+  border-radius: 44px;
   font-size: 32px;
   text-align: center;
   color: red;
@@ -49,4 +65,26 @@
   padding: 5px 10px;
   border-radius: 8px;
   width: 50px;
+  margin: 10px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.buttons .delete-yes-btn {
+  width: 75px;
+}
+
+.buttons .delete-no-btn {
+  width: 75px;
+}
+
+.buttons .delete-yes-btn:hover {
+  border: 1px solid red;
+  background-color: red;
 }
